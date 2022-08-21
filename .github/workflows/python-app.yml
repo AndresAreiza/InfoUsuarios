@@ -16,7 +16,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
@@ -45,5 +45,13 @@ jobs:
       with: 
         status: starting
         channel: '#taller-usuario'
-        message: Mensaje --> Starting Build and Deploy...
+        message: Mensaje --> Starting Workflow...
+      with: 
+        status: failure
+        channel: '#taller-usuario'
+        message: Failure --> Workflow failed
+      with: 
+        status: success
+        channel: '#taller-usuario'
+        message: Success --> Workflow finished successfully! 
       if: always()
