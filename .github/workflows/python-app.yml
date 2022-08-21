@@ -42,16 +42,19 @@ jobs:
         pytest
     - name: Slack Notification
       uses: act10ns/slack@v1
-      with: 
-        status: starting
-        channel: '#taller-usuario'
-        message: Mensaje --> Starting Workflow...
-      with: 
-        status: failure
-        channel: '#taller-usuario'
-        message: Failure --> Workflow failed
-      with: 
-        status: success
-        channel: '#taller-usuario'
-        message: Success --> Workflow finished successfully! 
       if: always()
+        with: 
+          status: starting
+          channel: '#taller-usuario'
+          message: Mensaje --> Starting Workflow...
+      if: failure()
+        with: 
+          status: failure
+          channel: '#taller-usuario'
+          message: Failure --> Workflow failed
+      if: success()
+        with: 
+          status: success
+          channel: '#taller-usuario'
+          message: Success --> Workflow finished successfully! 
+      
