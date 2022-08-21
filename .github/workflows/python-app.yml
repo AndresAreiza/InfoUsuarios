@@ -48,12 +48,14 @@ jobs:
         channel: '#taller-usuario'
         message: Mensaje --> Starting Workflow...
     - name: Failure Slack Notification
+      uses: act10ns/slack@v1
       if: failure()
       with: 
         status: failure
         channel: '#taller-usuario'
         message: Failure --> Workflow failed
     - name: Success Slack Notification
+      uses: act10ns/slack@v1
       if: success()
       with: 
         status: success
