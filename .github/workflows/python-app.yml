@@ -40,18 +40,20 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    - name: Slack Notification
+    - name: Starting Slack Notification
       uses: act10ns/slack@v1
       if: always()
       with: 
         status: starting
         channel: '#taller-usuario'
         message: Mensaje --> Starting Workflow...
+    - name: Failure Slack Notification
       if: failure()
       with: 
         status: failure
         channel: '#taller-usuario'
         message: Failure --> Workflow failed
+    - name: Success Slack Notification
       if: success()
       with: 
         status: success
