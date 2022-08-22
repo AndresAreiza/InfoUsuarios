@@ -42,11 +42,6 @@ jobs:
         pytest
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
-      with:
-        projectBaseDir: my-custom-directory
-        args: >
-          -Dsonar.organization=andresareiza
-          -Dsonar.projectKey=InfoUsuarios
       env:
         GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
