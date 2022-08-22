@@ -44,4 +44,4 @@ def read_infoUsers(idUsuario: str):
         return {"internalId": wInternalId}
     else:
         logging.error('Failed to execute GET method')
-        return {"HTTP status code 204: No Content"}
+        return {"HTTP status code 204: NoContent"}
