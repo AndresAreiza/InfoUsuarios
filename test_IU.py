@@ -5,5 +5,5 @@ from main import app
 client = TestClient(app)
 
 def test_index_route():
-    response = client.get('/infoUsers/idUsuario=aareiza')
+    response = client.get('/')
     assert response.status_code == 200
